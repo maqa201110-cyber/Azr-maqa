@@ -1,0 +1,37 @@
+plugins {
+    id 'fabric-loom' version '1.9-SNAPSHOT'
+}
+
+version = '1.0.1'
+group = 'com.azr.client'
+
+base {
+    archivesName = 'AzrClient-Timer'
+}
+
+repositories {
+    maven { url 'https://maven.fabricmc.net/' }
+}
+
+dependencies {
+    minecraft "com.mojang:minecraft:1.21.4"
+    mappings "net.fabricmc:yarn:1.21.4+build.8:v2"
+    modImplementation "net.fabricmc:fabric-loader:0.16.9"
+
+    // Mevcut AzrClient jar'i compile bagintiisi olarak ekle
+    compileOnly files('attached_assets/Azr.Client-1.0.0_(4)_1776607684442.jar')
+}
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(21)
+    }
+    sourceCompatibility = JavaVersion.VERSION_21
+    targetCompatibility = JavaVersion.VERSION_21
+}
+
+// Sadece Timer sinifini iceren bir jar olustur
+jar {
+    include 'com/azr/client/modules/movement/Timer.class'
+    include 'com/azr/client/modules/movement/Timer$*.class'
+}

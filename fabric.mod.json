@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "id": "azrclient",
+  "version": "1.0.0",
+  "name": "Azr Client",
+  "description": "Azr Client - Fabric 1.21.4 Mod",
+  "authors": ["Azr"],
+  "contact": {},
+  "license": "MIT",
+  "environment": "client",
+  "entrypoints": {
+    "client": [
+      "com.azr.client.AzrClient"
+    ]
+  },
+  "mixins": [
+    "azrclient.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.16.9",
+    "minecraft": "~1.21.4",
+    "java": ">=21",
+    "fabric-api": "*"
+  }
+}
