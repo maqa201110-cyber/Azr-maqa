@@ -2,9 +2,25 @@
   "required": true,
   "package": "com.azr.client.mixin",
   "compatibilityLevel": "JAVA_21",
+  "mixins": [
+    "PlayerEntityAccessor",
+    "HitboxExpandMixin",
+    "FastUseMixin",
+    "FastBreakMixin",
+    "KeyBindingAccessor",
+    "MinecraftClientAccessor"
+  ],
   "client": [
     "EntityVelocityCancelMixin",
-    "ExplosionVelocityCancelMixin"
+    "ExplosionVelocityCancelMixin",
+    "NoHitDelayMixin",
+    "KeepSprintMixin",
+    "NoSlowMixin",
+    "SafeWalkMixin",
+    "NoFallMixin",
+    "FastPlaceMixin",
+    "InvMoveMixin",
+    "TimerMixin"
   ],
   "injectors": {
     "defaultRequire": 1

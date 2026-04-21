@@ -4,14 +4,12 @@ public enum ModuleCategory {
     COMBAT("Combat"),
     MOVEMENT("Movement"),
     PLAYER("Player"),
+    WORLD("World"),
     VISUALS("Visuals"),
     CLIENT("Client");
 
-    private final String displayName;
-
-    ModuleCategory(String displayName) {
-        this.displayName = displayName;
-    }
-
-    public String getDisplayName() { return displayName; }
+    private final String label;
+    ModuleCategory(String label) { this.label = label; }
+    public String getLabel() { return label; }
+    public String getDisplayName() { return label; }
 }
