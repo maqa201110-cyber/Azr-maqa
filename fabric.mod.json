@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
   "id": "azrclient",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "name": "Azr Client",
-  "description": "Azr Client - Fabric 1.21.4 Mod",
+  "description": "Azr Client - Fabric 1.21.4 (ClickGUI + KillAura + Velocity)",
   "authors": ["Azr"],
   "contact": {},
   "license": "MIT",

@@ -4,6 +4,8 @@ const path = require('path');
 
 const JAR_FILE = path.join(__dirname, 'Azr.Client-1.0.4-KeyM.jar');
 const JAR_NAME = 'Azr.Client-1.0.4-KeyM.jar';
+const SRC_FILE = path.join(__dirname, 'attached_assets', 'AzrClient-source-v2.tar.gz');
+const SRC_NAME = 'AzrClient-source-v2.tar.gz';
 
 const html = `<!DOCTYPE html>
 <html lang="en">
@@ -35,6 +37,9 @@ const html = `<!DOCTYPE html>
       <li>Minecraft: <code>1.21.4 (Fabric)</code></li>
     </ul>
     <a class="btn" href="/download">⬇ İndir — ${JAR_NAME}</a>
+    <p style="margin-top:24px"><strong>v2.0 kaynak (yerel build için):</strong></p>
+    <a class="btn" href="/source">⬇ Kaynak — ${SRC_NAME}</a>
+    <p style="font-size:13px;opacity:.75;margin-top:8px">Aç, JDK 21 ile <code>gradle build</code> çalıştır → <code>build/libs/AzrClient-2.0.0.jar</code></p>
   </div>
 </body>
 </html>`;
@@ -53,6 +58,22 @@ const server = http.createServer((req, res) => {
       'Content-Length': stat.size
     });
     fs.createReadStream(JAR_FILE).pipe(res);
+    return;
+  }
+
+  if (req.url === '/source') {
+    if (!fs.existsSync(SRC_FILE)) {
+      res.writeHead(404);
+      res.end('Kaynak paketi bulunamadi.');
+      return;
+    }
+    const stat = fs.statSync(SRC_FILE);
+    res.writeHead(200, {
+      'Content-Type': 'application/gzip',
+      'Content-Disposition': `attachment; filename="${SRC_NAME}"`,
+      'Content-Length': stat.size
+    });
+    fs.createReadStream(SRC_FILE).pipe(res);
     return;
   }
 
